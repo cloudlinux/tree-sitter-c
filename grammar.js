@@ -292,10 +292,10 @@ module.exports = grammar({
     ),
 
     attribute_specifier: $ => seq(
-      '__attribute__',
-      '(',
-      $.argument_list,
-      ')',
+      choice(
+        seq('__attribute__','(',$.argument_list,')'),
+        seq(choice('__scanf', '__printf'), '(', commaSep($.number_literal), ')'),
+      ),
     ),
 
     attribute: $ => seq(
