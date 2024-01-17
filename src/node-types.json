@@ -698,11 +698,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
           "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "number_literal",
           "named": true
         }
       ]
@@ -4269,7 +4273,15 @@
     "named": false
   },
   {
+    "type": "__printf",
+    "named": false
+  },
+  {
     "type": "__restrict__",
+    "named": false
+  },
+  {
+    "type": "__scanf",
     "named": false
   },
   {
