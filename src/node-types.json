@@ -2629,6 +2629,21 @@
     }
   },
   {
+    "type": "preproc_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_call",
     "named": true,
     "fields": {
@@ -4420,10 +4435,6 @@
   {
     "type": "offsetof",
     "named": false
-  },
-  {
-    "type": "preproc_arg",
-    "named": true
   },
   {
     "type": "preproc_directive",
