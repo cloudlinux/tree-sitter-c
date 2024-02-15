@@ -295,6 +295,9 @@ module.exports = grammar({
       choice(
         seq('__attribute__','(',$.argument_list,')'),
         seq(choice('__scanf', '__printf'), '(', commaSep($.number_literal), ')'),
+        '__read_mostly',
+        seq('__must_hold', '(', $.argument_list, ')'),
+        '__ro_after_init'
       ),
     ),
 

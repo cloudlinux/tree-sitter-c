@@ -4176,11 +4176,23 @@
     "named": false
   },
   {
+    "type": "__must_hold",
+    "named": false
+  },
+  {
     "type": "__printf",
     "named": false
   },
   {
+    "type": "__read_mostly",
+    "named": false
+  },
+  {
     "type": "__restrict__",
+    "named": false
+  },
+  {
+    "type": "__ro_after_init",
     "named": false
   },
   {
