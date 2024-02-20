@@ -3413,6 +3413,10 @@
       "required": false,
       "types": [
         {
+          "type": "argument_list",
+          "named": true
+        },
+        {
           "type": "attribute_specifier",
           "named": true
         },
@@ -4112,6 +4116,10 @@
     "named": false
   },
   {
+    "type": "__aligned",
+    "named": false
+  },
+  {
     "type": "__alignof",
     "named": false
   },
@@ -4161,6 +4169,10 @@
   },
   {
     "type": "__forceinline",
+    "named": false
+  },
+  {
+    "type": "__init",
     "named": false
   },
   {
