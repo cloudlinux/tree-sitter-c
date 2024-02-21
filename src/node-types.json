@@ -3496,6 +3496,10 @@
       "required": false,
       "types": [
         {
+          "type": "argument_list",
+          "named": true
+        },
+        {
           "type": "attribute_specifier",
           "named": true
         },
@@ -4209,6 +4213,10 @@
     "named": false
   },
   {
+    "type": "__aligned",
+    "named": false
+  },
+  {
     "type": "__alignof",
     "named": false
   },
@@ -4261,6 +4269,10 @@
     "named": false
   },
   {
+    "type": "__init",
+    "named": false
+  },
+  {
     "type": "__inline",
     "named": false
   },
@@ -4273,11 +4285,23 @@
     "named": false
   },
   {
+    "type": "__must_hold",
+    "named": false
+  },
+  {
     "type": "__printf",
     "named": false
   },
   {
+    "type": "__read_mostly",
+    "named": false
+  },
+  {
     "type": "__restrict__",
+    "named": false
+  },
+  {
+    "type": "__ro_after_init",
     "named": false
   },
   {
