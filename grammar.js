@@ -295,6 +295,10 @@ module.exports = grammar({
       choice(
         seq('__attribute__','(',$.argument_list,')'),
         seq(choice('__scanf', '__printf'), '(', commaSep($.number_literal), ')'),
+        '__read_mostly',
+        seq(choice('__must_hold'), '(', $.argument_list, ')'),
+        '__ro_after_init',
+        '__init'
       ),
     ),
 
@@ -653,6 +657,7 @@ module.exports = grammar({
         field('body', $.field_declaration_list),
       ),
       optional($.attribute_specifier),
+      optional(seq('__aligned', '(', $.argument_list, ')')),
     )),
 
     union_specifier: $ => prec.right(seq(
