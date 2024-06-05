@@ -4316,6 +4316,10 @@
     "named": false
   },
   {
+    "type": "__cold",
+    "named": false
+  },
+  {
     "type": "__declspec",
     "named": false
   },
@@ -4361,6 +4365,10 @@
   },
   {
     "type": "__must_hold",
+    "named": false
+  },
+  {
+    "type": "__noreturn",
     "named": false
   },
   {

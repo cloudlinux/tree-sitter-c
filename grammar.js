@@ -313,6 +313,8 @@ module.exports = grammar({
         '__read_mostly',
         seq(choice('__must_hold'), '(', $.argument_list, ')'),
         '__ro_after_init',
+        '__noreturn',
+        '__cold',
       ),
     ),
 
