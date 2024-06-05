@@ -404,6 +404,10 @@
           "named": true
         },
         {
+          "type": "macro_modifier",
+          "named": true
+        },
+        {
           "type": "ms_call_modifier",
           "named": true
         }
@@ -1263,6 +1267,10 @@
             "named": true
           },
           {
+            "type": "macro_modifier",
+            "named": true
+          },
+          {
             "type": "ms_call_modifier",
             "named": true
           },
@@ -1601,6 +1609,10 @@
           "named": true
         },
         {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -1845,6 +1857,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "macro_modifier",
           "named": true
         },
         {
@@ -2308,6 +2324,37 @@
     }
   },
   {
+    "type": "macro_invocation",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_declarator",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "macro_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "macro_type_specifier",
     "named": true,
     "fields": {
@@ -2528,6 +2575,10 @@
         },
         {
           "type": "_type_declarator",
+          "named": true
+        },
+        {
+          "type": "macro_modifier",
           "named": true
         },
         {
@@ -2800,6 +2851,10 @@
           "named": true
         },
         {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -2896,6 +2951,10 @@
           "named": true
         },
         {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -2960,6 +3019,10 @@
         },
         {
           "type": "linkage_specification",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
           "named": true
         },
         {
@@ -3123,6 +3186,10 @@
           "named": true
         },
         {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
           "type": "preproc_call",
           "named": true
         },
@@ -3216,6 +3283,10 @@
         },
         {
           "type": "linkage_specification",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
           "named": true
         },
         {
@@ -4250,6 +4321,10 @@
   },
   {
     "type": "__except",
+    "named": false
+  },
+  {
+    "type": "__exit",
     "named": false
   },
   {

@@ -161,10 +161,9 @@ module.exports = grammar({
     ...preprocIf('_in_enumerator_list', $ => seq($.enumerator, ',')),
     ...preprocIf('_in_enumerator_list_no_comma', $ => $.enumerator, -1),
 
-
-    preproc_arg: $ => prec(-1, 
+    preproc_arg: $ => prec(-1,
         seq(token(/\\\r?\n|\S/), repeat(choice($.comment, token(/[^/\n]|\/[^*]|\\\r?\n/))))
-      ),
+    ),
 
     preproc_directive: _ => /#[ \t]*[a-zA-Z0-9]\w*/,
 
@@ -244,12 +243,14 @@ module.exports = grammar({
       optional($.ms_call_modifier),
       $._declaration_specifiers,
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       field('declarator', $._declarator),
       field('body', $.compound_statement),
     ),
 
     _old_style_function_definition: $ => seq(
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       $._declaration_specifiers,
       field('declarator', alias($._old_style_function_declarator, $.function_declarator)),
       repeat($.declaration),
@@ -261,6 +262,7 @@ module.exports = grammar({
       commaSep1(field('declarator', choice(
         seq(
           optional($.ms_call_modifier),
+          optional($.macro_modifier),
           $._declaration_declarator,
           optional($.gnu_asm_expression),
         ),
@@ -311,7 +313,6 @@ module.exports = grammar({
         '__read_mostly',
         seq(choice('__must_hold'), '(', $.argument_list, ')'),
         '__ro_after_init',
-        '__init'
       ),
     ),
 
@@ -337,6 +338,11 @@ module.exports = grammar({
     ms_based_modifier: $ => seq(
       '__based',
       $.argument_list,
+    ),
+
+    macro_modifier: _ => choice(
+      '__init',
+      '__exit',
     ),
 
     ms_call_modifier: _ => choice(
@@ -417,24 +423,28 @@ module.exports = grammar({
     parenthesized_declarator: $ => prec.dynamic(PREC.PAREN_DECLARATOR, seq(
       '(',
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       $._declarator,
       ')',
     )),
     parenthesized_field_declarator: $ => prec.dynamic(PREC.PAREN_DECLARATOR, seq(
       '(',
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       $._field_declarator,
       ')',
     )),
     parenthesized_type_declarator: $ => prec.dynamic(PREC.PAREN_DECLARATOR, seq(
       '(',
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       $._type_declarator,
       ')',
     )),
     abstract_parenthesized_declarator: $ => prec(1, seq(
       '(',
       optional($.ms_call_modifier),
+      optional($.macro_modifier),
       $._abstract_declarator,
       ')',
     )),
@@ -735,6 +745,12 @@ module.exports = grammar({
       $.preproc_call,
       alias($.preproc_if_in_field_declaration_list, $.preproc_if),
       alias($.preproc_ifdef_in_field_declaration_list, $.preproc_ifdef),
+      $.macro_invocation,
+    ),
+
+    macro_invocation: $ => seq(
+      field('declarator', $._declarator),
+      field('parameters', $.parameter_list),
     ),
 
     field_declaration: $ => seq(
