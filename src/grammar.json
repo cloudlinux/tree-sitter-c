@@ -2831,6 +2831,18 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "macro_modifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "declarator",
           "content": {
@@ -2857,6 +2869,18 @@
             {
               "type": "SYMBOL",
               "name": "ms_call_modifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "macro_modifier"
             },
             {
               "type": "BLANK"
@@ -2929,6 +2953,18 @@
                         ]
                       },
                       {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "macro_modifier"
+                          },
+                          {
+                            "type": "BLANK"
+                          }
+                        ]
+                      },
+                      {
                         "type": "SYMBOL",
                         "name": "_declaration_declarator"
                       },
@@ -2977,6 +3013,18 @@
                                 {
                                   "type": "SYMBOL",
                                   "name": "ms_call_modifier"
+                                },
+                                {
+                                  "type": "BLANK"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "CHOICE",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "macro_modifier"
                                 },
                                 {
                                   "type": "BLANK"
@@ -3335,7 +3383,11 @@
             },
             {
               "type": "STRING",
-              "value": "__init"
+              "value": "__noreturn"
+            },
+            {
+              "type": "STRING",
+              "value": "__cold"
             }
           ]
         }
@@ -3460,6 +3512,19 @@
         {
           "type": "SYMBOL",
           "name": "argument_list"
+        }
+      ]
+    },
+    "macro_modifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "__init"
+        },
+        {
+          "type": "STRING",
+          "value": "__exit"
         }
       ]
     },
@@ -3803,6 +3868,18 @@
             ]
           },
           {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "macro_modifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
             "type": "SYMBOL",
             "name": "_declarator"
           },
@@ -3829,6 +3906,18 @@
               {
                 "type": "SYMBOL",
                 "name": "ms_call_modifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "macro_modifier"
               },
               {
                 "type": "BLANK"
@@ -3869,6 +3958,18 @@
             ]
           },
           {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "macro_modifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
             "type": "SYMBOL",
             "name": "_type_declarator"
           },
@@ -3895,6 +3996,18 @@
               {
                 "type": "SYMBOL",
                 "name": "ms_call_modifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "macro_modifier"
               },
               {
                 "type": "BLANK"
@@ -5608,6 +5721,31 @@
           },
           "named": true,
           "value": "preproc_ifdef"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "macro_invocation"
+        }
+      ]
+    },
+    "macro_invocation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "declarator",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_declarator"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_list"
+          }
         }
       ]
     },
