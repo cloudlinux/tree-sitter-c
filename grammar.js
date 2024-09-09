@@ -85,7 +85,7 @@ module.exports = grammar({
     translation_unit: $ => repeat($._top_level_item),
 
     _linux_kernel_annotations: $ => token(choice(
-        '__init',
+      '__init',
       '__exit',
       '__initdata',
       '__exitdata',
@@ -117,10 +117,6 @@ module.exports = grammar({
       '__kernel',
       '__force',
       '__iomem',
-      '__acquires',
-      '__releases',
-      '__acquire',
-      '__release',
       '__rcu',
       '__percpu',
       '__init_once'

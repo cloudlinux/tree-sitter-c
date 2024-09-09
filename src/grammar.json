@@ -144,22 +144,6 @@
           },
           {
             "type": "STRING",
-            "value": "__acquires"
-          },
-          {
-            "type": "STRING",
-            "value": "__releases"
-          },
-          {
-            "type": "STRING",
-            "value": "__acquire"
-          },
-          {
-            "type": "STRING",
-            "value": "__release"
-          },
-          {
-            "type": "STRING",
             "value": "__rcu"
           },
           {
