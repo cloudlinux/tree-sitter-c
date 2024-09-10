@@ -57,6 +57,7 @@ module.exports = grammar({
   extras: $ => [
     /\s|\\\r?\n/,
     $.comment,
+    $._linux_kernel_annotations,
   ],
 
   inline: $ => [
@@ -82,6 +83,44 @@ module.exports = grammar({
 
   rules: {
     translation_unit: $ => repeat($._top_level_item),
+
+    _linux_kernel_annotations: $ => token(choice(
+      '__init',
+      '__exit',
+      '__initdata',
+      '__exitdata',
+      '__initconst',
+      '__initconstdata',
+      '__devinit',
+      '__devexit',
+      '__devinitdata',
+      '__devexitdata',
+      '__init_refok',
+      '__exit_refok',
+      '__ref',
+      '__refdata',
+      '__section',
+      '__used',
+      '__unused',
+      '__aligned',
+      '__packed',
+      '__always_inline',
+      '__noinline',
+      '__deprecated',
+      '__noreturn',
+      '__cold',
+      '__ro_after_init',
+      '__must_check',
+      '__always_unused',
+      '__maybe_unused',
+      '__user',
+      '__kernel',
+      '__force',
+      '__iomem',
+      '__rcu',
+      '__percpu',
+      '__init_once'
+  )),
 
     // Top level items are block items with the exception of the expression statement
     _top_level_item: $ => choice(

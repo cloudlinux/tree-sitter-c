@@ -9,6 +9,154 @@
         "name": "_top_level_item"
       }
     },
+    "_linux_kernel_annotations": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "__init"
+          },
+          {
+            "type": "STRING",
+            "value": "__exit"
+          },
+          {
+            "type": "STRING",
+            "value": "__initdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__exitdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__initconst"
+          },
+          {
+            "type": "STRING",
+            "value": "__initconstdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__devinit"
+          },
+          {
+            "type": "STRING",
+            "value": "__devexit"
+          },
+          {
+            "type": "STRING",
+            "value": "__devinitdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__devexitdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__init_refok"
+          },
+          {
+            "type": "STRING",
+            "value": "__exit_refok"
+          },
+          {
+            "type": "STRING",
+            "value": "__ref"
+          },
+          {
+            "type": "STRING",
+            "value": "__refdata"
+          },
+          {
+            "type": "STRING",
+            "value": "__section"
+          },
+          {
+            "type": "STRING",
+            "value": "__used"
+          },
+          {
+            "type": "STRING",
+            "value": "__unused"
+          },
+          {
+            "type": "STRING",
+            "value": "__aligned"
+          },
+          {
+            "type": "STRING",
+            "value": "__packed"
+          },
+          {
+            "type": "STRING",
+            "value": "__always_inline"
+          },
+          {
+            "type": "STRING",
+            "value": "__noinline"
+          },
+          {
+            "type": "STRING",
+            "value": "__deprecated"
+          },
+          {
+            "type": "STRING",
+            "value": "__noreturn"
+          },
+          {
+            "type": "STRING",
+            "value": "__cold"
+          },
+          {
+            "type": "STRING",
+            "value": "__ro_after_init"
+          },
+          {
+            "type": "STRING",
+            "value": "__must_check"
+          },
+          {
+            "type": "STRING",
+            "value": "__always_unused"
+          },
+          {
+            "type": "STRING",
+            "value": "__maybe_unused"
+          },
+          {
+            "type": "STRING",
+            "value": "__user"
+          },
+          {
+            "type": "STRING",
+            "value": "__kernel"
+          },
+          {
+            "type": "STRING",
+            "value": "__force"
+          },
+          {
+            "type": "STRING",
+            "value": "__iomem"
+          },
+          {
+            "type": "STRING",
+            "value": "__rcu"
+          },
+          {
+            "type": "STRING",
+            "value": "__percpu"
+          },
+          {
+            "type": "STRING",
+            "value": "__init_once"
+          }
+        ]
+      }
+    },
     "_top_level_item": {
       "type": "CHOICE",
       "members": [
@@ -9891,6 +10039,10 @@
     {
       "type": "SYMBOL",
       "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_linux_kernel_annotations"
     }
   ],
   "conflicts": [
