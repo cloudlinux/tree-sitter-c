@@ -48,6 +48,8 @@ module.exports = grammar({
     [$.enum_specifier],
     [$.type_specifier, $._old_style_parameter_list],
     [$.parameter_list, $._old_style_parameter_list],
+    [$.parameter_list, $.macro_invocation_parameter_list],
+    [$.type_qualifier, $.macro_invocation_parameter_list],
     [$.function_declarator, $._function_declaration_declarator],
     [$._block_item, $.statement],
     [$._top_level_item, $._top_level_statement],
@@ -791,7 +793,19 @@ module.exports = grammar({
 
     macro_invocation: $ => seq(
       field('declarator', $._declarator),
-      field('parameters', $.parameter_list),
+      field('parameters', $.macro_invocation_parameter_list),
+    ),
+
+    macro_invocation_parameter_list: $ => seq(
+      '(',
+      commaSep(
+        choice(
+          $.parameter_declaration,
+          $.variadic_parameter,
+          seq(optional('__extension__'), $.expression),
+          )
+        ),
+      ')',
     ),
 
     field_declaration: $ => seq(
