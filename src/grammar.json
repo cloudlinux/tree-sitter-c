@@ -5892,8 +5892,114 @@
           "name": "parameters",
           "content": {
             "type": "SYMBOL",
-            "name": "parameter_list"
+            "name": "macro_invocation_parameter_list"
           }
+        }
+      ]
+    },
+    "macro_invocation_parameter_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "parameter_declaration"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "variadic_parameter"
+                    },
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "__extension__"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "expression"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "parameter_declaration"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "variadic_parameter"
+                          },
+                          {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "STRING",
+                                    "value": "__extension__"
+                                  },
+                                  {
+                                    "type": "BLANK"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "expression"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
@@ -10092,6 +10198,14 @@
     [
       "parameter_list",
       "_old_style_parameter_list"
+    ],
+    [
+      "parameter_list",
+      "macro_invocation_parameter_list"
+    ],
+    [
+      "type_qualifier",
+      "macro_invocation_parameter_list"
     ],
     [
       "function_declarator",

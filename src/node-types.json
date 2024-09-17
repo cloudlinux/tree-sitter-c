@@ -2342,11 +2342,34 @@
         "required": true,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "macro_invocation_parameter_list",
             "named": true
           }
         ]
       }
+    }
+  },
+  {
+    "type": "macro_invocation_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "parameter_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_parameter",
+          "named": true
+        }
+      ]
     }
   },
   {
